@@ -1,12 +1,12 @@
 <template>
-  <DefaultPage />
+  <Node/>
 </template>
 
 <script>
-import DefaultPage from './DefaultPage'
+import Node from './Node'
 export default {
   components:  {
-    DefaultPage,
-  }
+    Node,
+  },
 }
 </script>
