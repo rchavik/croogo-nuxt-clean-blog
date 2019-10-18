@@ -20,7 +20,7 @@ export const mutations = {
 export const actions = {
 
   async GET_PROMOTED ({ commit }) {
-    const { data } = await this.$axios.$get('/api/nodes?type=post', {
+    const { data } = await this.$axios.$get('/api/v1.0/nodes?promote=1', {
       headers: {
         options: {
           Accept: 'application/json'
@@ -36,7 +36,7 @@ export const actions = {
   async GET_NODE ({ commit }, params) {
     const qs = new URLSearchParams(params).toString()
     commit('clearCurrent')
-    const { data } = await this.$axios.$get('/api/nodes?' + qs, {
+    const { data } = await this.$axios.$get('/api/v1.0/nodes?status=1&' + qs, {
       headers: {
         options: {
           Accept: 'application/json'

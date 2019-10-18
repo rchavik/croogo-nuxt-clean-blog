@@ -18,7 +18,7 @@ export const actions = {
 
   async GET_LINKS ({ commit }, menuAlias) {
     const query = new URLSearchParams({menuAlias})
-    const { data } = await this.$axios.$get('/api/links?' + query.toString(), {
+    const { data } = await this.$axios.$get('/api/v1.0/links?' + query.toString(), {
       headers: {
         options: {
           Accept: 'application/json'
