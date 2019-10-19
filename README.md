@@ -1,4 +1,4 @@
-# Nuxtified plugin for CakePHP
+# Nuxtified plugin for Croogo
 
 ## Setup
 
@@ -59,7 +59,7 @@ server {
     }
 ```
 
-- Alternatively, you can pass all request to node during developer
+- Alternatively, you can pass all request to node during development
 ```
     location / {
         proxy_redirect off;
