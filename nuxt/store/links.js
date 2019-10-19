@@ -1,3 +1,5 @@
+import Link from '~/models/Link'
+
 export const state = () => ({
   main: []
 })
@@ -18,17 +20,7 @@ export const actions = {
 
   async GET_LINKS ({ commit }, menuAlias) {
     const query = new URLSearchParams({menuAlias})
-    const { data } = await this.$axios.$get('/api/v1.0/links?' + query.toString(), {
-      headers: {
-        options: {
-          Accept: 'application/json'
-        },
-        get: {
-          Accept: 'application/json'
-        }
-      }
-    })
-    console.log(data)
+    const { data } = await Link.params({menuAlias}).get()
     commit('replace', data)
   },
 

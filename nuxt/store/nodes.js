@@ -1,3 +1,5 @@
+import Node from '~/models/Node'
+
 export const state = () => ({
   promoted: [],
   current: {}
@@ -20,32 +22,14 @@ export const mutations = {
 export const actions = {
 
   async GET_PROMOTED ({ commit }) {
-    const { data } = await this.$axios.$get('/api/v1.0/nodes?promote=1', {
-      headers: {
-        options: {
-          Accept: 'application/json'
-        },
-        get: {
-          Accept: 'application/json'
-        }
-      }
-    })
+    const { data } = await Node.params({promote: 1}).get()
     commit('replacePromoted', data)
   },
 
   async GET_NODE ({ commit }, params) {
-    const qs = new URLSearchParams(params).toString()
     commit('clearCurrent')
-    const { data } = await this.$axios.$get('/api/v1.0/nodes?status=1&' + qs, {
-      headers: {
-        options: {
-          Accept: 'application/json'
-        },
-        get: {
-          Accept: 'application/json'
-        }
-      }
-    })
+    params.status = 1
+    const { data } = await Node.params(params).get()
     commit('replaceCurrent', data.length > 0 ? data[0] : {})
   }
 

@@ -28,6 +28,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/vue-api-query',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -58,5 +59,8 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  api: {
+    baseUrl: 'http://mysite.test/api/v1.0'
+  },
 }

@@ -9773,6 +9773,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
   integrity sha512-iq+S7vZJE60yejDYM0ek6zg308+UZsdtPExWP9VZoCFCz1zkJoXFnAX7aZfd/ZwrkidzdUZL0C/ryW+JwAiIGw==
 
+vue-api-query@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/vue-api-query/-/vue-api-query-1.5.1.tgz#7abfd61f06fe3f22712c5c63bc101a53fd4147a8"
+  integrity sha512-9VAGugAe0idKZF7xmXzlOThvyBTpkv6YT4ihkbzwpIwLedCyLczr1LOKQ1m0qpK7EPFP4vHzN/zrY5HFfX/rMw==
+
 vue-client-only@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.0.0.tgz#ddad8d675ee02c761a14229f0e440e219de1da1c"
