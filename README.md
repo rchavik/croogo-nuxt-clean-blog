@@ -73,15 +73,13 @@ server {
     }
 ```
 
-- Customize axios configuration in `plugins/Nuxtified/nuxt/nuxt.config.js`
+- Add api configuration in `plugins/Nuxtified/nuxt/nuxt.config.js`
 
 ```js
 {
-    axios: {
-        https: false,
-        host: 'mysite.test',
-        port: 80,
-    }
+    api: {
+        baseUrl: 'http://mysite.test/api/v1.0',
+    },
 }
 ```
 
