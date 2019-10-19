@@ -21,7 +21,7 @@ server {
     }
 
     # pass some requests to croogo
-    location ~ ^/(admin|api|assets|croogo|debug_kit|uploads) {
+    location ~ ^/(admin|api|assets|croogo|debug.kit|uploads) {
         try_files $uri $uri/ /index.php?$args;
     }
 
