@@ -1,5 +1,5 @@
 <template>
-  <header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+  <header class="masthead" v-bind:style="{ backgroundImage: `url(${masthead.backgroundImage})` }">
     <div class="overlay" />
     <div class="container">
       <div class="row">
@@ -21,9 +21,13 @@ export default Vue.extend({
   computed: {
     masthead () {
       const current = this.$store.state.nodes.current;
+      const imagePath = current.linked_assets && current.linked_assets.FeaturedImage && current.linked_assets.FeaturedImage.length > 0
+        ? current.linked_assets.FeaturedImage[0].path
+        : '//picsum.photos/800/450'
       return {
         heading: current.title ,
         subheading: current.excerpt,
+        backgroundImage: imagePath,
       }
     }
   }
