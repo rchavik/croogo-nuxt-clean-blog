@@ -85,7 +85,7 @@ server {
 
 - Install nuxt packages and generate the application:
 
-    `( cd plugins/Nuxfied/nuxt && yarn install && yarn run generate )`
+    `( cd plugins/Nuxtified/nuxt && yarn install && yarn run generate )`
 
   Or during development:
-    `( cd plugins/Nuxfied/nuxt && yarn install && yarn run dev )`
+    `( cd plugins/Nuxtified/nuxt && yarn install && yarn run dev )`
