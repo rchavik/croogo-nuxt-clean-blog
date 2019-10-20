@@ -12,7 +12,9 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css' },
+      { rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/startbootstrap-clean-blog/5.0.8/css/clean-blog.min.css' },
     ]
   },
   /*
