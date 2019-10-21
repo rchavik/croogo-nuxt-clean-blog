@@ -1,6 +1,6 @@
 import Model from './Model'
 
-export default class Links extends Model {
+export default class Link extends Model {
 
   resource()
   {

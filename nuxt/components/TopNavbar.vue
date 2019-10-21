@@ -16,7 +16,7 @@
       </button>
       <div id="navbarResponse" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li v-for="link in links.main" :key="link.id" class="nav-item">
+          <li v-for="link in links" :key="link.id" class="nav-item">
             <nuxt-link :to="link.path">{{link.title}}</nuxt-link>
           </li>
         </ul>
@@ -31,7 +31,7 @@ export default Vue.extend({
 
   computed: {
     links () {
-      return this.$store.state.links
+      return this.$store.state.links[this.$attrs.menu]
     }
   },
 
