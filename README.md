@@ -25,11 +25,6 @@ server {
         try_files $uri $uri/ /index.php?$args;
     }
 
-    # pass /admin requests to croogo/cakephp
-    location /admin {
-        try_files $uri $uri/ /index.php?$args;
-    }
-
     # setup php handler (assuming fastcgi_params is supplied by your distro
     location ~ \.php$ {
         try_files $uri =404;
