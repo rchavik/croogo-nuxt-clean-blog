@@ -21,7 +21,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-const getMenuAlias = function(shortcode) {
+const getMenuAlias = function(shortcode: string) {
   let re = /\[(menu|m):([A-Za-z0-9_\-]*)(.*?)\]/i
   let result = re.exec(shortcode)
   return result ? result[2] : null
@@ -33,14 +33,11 @@ export default Vue.extend({
     block: {}
   },
 
-  computed: {
-    links() {
-      return this.$store.state.links;
-    },
-
-    menuAlias() {
-      return getMenuAlias(this.$props.block.body)
-    },
+  data() {
+    return {
+      links: this.$store.state.links,
+      menuAlias: getMenuAlias(this.$props.block.body),
+    }
   },
 
   async mounted () {
