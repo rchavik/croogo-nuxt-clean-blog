@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-      <div v-if="nodes.nodes.length == 0">
+      <div v-if="nodes.node_list == null || nodes.node_list.length == 0">
         No items found
       </div>
 
-      <div v-for="node in nodes.nodes" :key="node.id" class="post-preview">
+      <div v-for="node in nodes.node_list" :key="node.id" class="post-preview">
         <nuxt-link :to="node.path" >
           <h2 class="post-title">{{node.title}}</h2>
         </nuxt-link>
@@ -44,12 +44,13 @@ export default class NodeList extends Vue {
 
   async mounted() {
 
+    const name = 'node_list'
     let params = {
       type: this.type,
       term: this.termSlug,
     }
 
-    await this.$store.dispatch('nodes/GET_NODES', params)
+    await this.$store.dispatch('nodes/GET_NODES', {name, params})
   }
 
 }
