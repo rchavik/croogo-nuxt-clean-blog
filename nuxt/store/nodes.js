@@ -2,6 +2,7 @@ import Node from '~/models/Node'
 
 export const state = () => ({
   promoted: [],
+  nodes: [],
   current: {}
 })
 
@@ -17,6 +18,9 @@ export const mutations = {
   replaceCurrent(state, node) {
     state.current = node;
   },
+  replaceNodes(state, nodes) {
+    state.nodes = nodes;
+  },
 }
 
 export const actions = {
@@ -31,6 +35,11 @@ export const actions = {
     params.status = 1
     const { data } = await Node.params(params).get()
     commit('replaceCurrent', data.length > 0 ? data[0] : {})
-  }
+  },
 
+  async GET_NODES ({ commit }, params) {
+    params.status = 1
+    const { data } = await Node.params(params).get()
+    commit('replaceNodes', data)
+  },
 }
