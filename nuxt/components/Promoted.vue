@@ -10,7 +10,7 @@
         </nuxt-link>
 
         <p class="post-meta">
-          Posted by {{node.user.username}} on {{format_date(node.created)}}
+          Posted by {{node.user.username}} on {{node.created | date_format}}
         </p>
 
       </div>
