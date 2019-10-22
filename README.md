@@ -68,6 +68,11 @@ server {
     }
 ```
 
+- Prepare `plugins/Nuxtified/nuxt/croogo.config.js`
+```
+    bin/cake nuxtified.config generate
+```
+
 - Add api configuration in `plugins/Nuxtified/nuxt/nuxt.config.js`
 
 ```js

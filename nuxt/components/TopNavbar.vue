@@ -1,7 +1,7 @@
 <template>
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-      <nuxt-link to="/" class="navbar-brand">Home</nuxt-link>
+      <nuxt-link to="/" class="navbar-brand">{{ siteTitle }}</nuxt-link>
       <button
         class="navbar-toggler navbar-toggler-right"
         type="button"
@@ -27,11 +27,16 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import croogoConfig from '~/croogo.config'
 
 @Component
 export default class TopNavbar extends Vue {
 
   @Prop(String) readonly menu: String | undefined
+
+  get siteTitle () {
+    return croogoConfig.title
+  }
 
   get links () {
     return this.$store.state.links[this.$props.menu]

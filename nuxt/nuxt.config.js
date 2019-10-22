@@ -1,3 +1,9 @@
+let croogoConfig = {}
+try {
+  croogoConfig = require('./croogo.config.js').default
+} catch (e) {
+  throw 'croogo.config.js not found. Please run bin/cake nuxtified.config generate first'
+}
 
 export default {
   mode: 'universal',
@@ -5,11 +11,11 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: croogoConfig.title || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: croogoConfig.tagline || '' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
