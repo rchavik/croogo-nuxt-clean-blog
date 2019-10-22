@@ -8,7 +8,7 @@
 
       <ul>
         <li v-for="link in links[menuAlias]" :key="link.id" class="nav-item">
-          <nuxt-link v-if="link.path[0] == '/'" :to="link.path">{{link.title}}</nuxt-link>
+          <nuxt-link v-if="link.path[0] == '/' && link.path != '/admin'" :to="link.path">{{link.title}}</nuxt-link>
           <a :href="link.path" target="_blank" v-else>{{link.title}}</a>
         </li>
       </ul>
