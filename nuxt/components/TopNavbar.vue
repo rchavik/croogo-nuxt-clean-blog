@@ -26,18 +26,20 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
-  computed: {
-    links () {
-      return this.$store.state.links[this.$attrs.menu]
-    }
-  },
+@Component
+export default class TopNavbar extends Vue {
+
+  @Prop(String) readonly menu: String | undefined
+
+  get links () {
+    return this.$store.state.links[this.$props.menu]
+  }
 
   async mounted () {
-    await this.$store.dispatch('links/GET_LINKS', this.$attrs.menu);
-  },
+    await this.$store.dispatch('links/GET_LINKS', this.$props.menu);
+  }
 
-})
+}
 </script>

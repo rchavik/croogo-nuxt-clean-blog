@@ -10,30 +10,29 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import DefaultBlock from '~/components/DefaultBlock.vue'
-import MenuBlock from '~/components/MenuBlock.vue'
-import NodeBlock from '~/components/NodeBlock.vue'
-import TaxonomyBlock from '~/components/TaxonomyBlock.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import DefaultBlock from './DefaultBlock.vue'
+import MenuBlock from './MenuBlock.vue'
+import NodeBlock from './NodeBlock.vue'
+import TaxonomyBlock from './TaxonomyBlock.vue'
 
-export default Vue.extend({
-
+@Component({
   components: {
     DefaultBlock,
     MenuBlock,
     NodeBlock,
     TaxonomyBlock,
   },
+})
+export default class Region extends Vue {
 
-  computed: {
-    blocks () {
-      return this.$store.state.blocks
-    }
-  },
+  get blocks () {
+    return this.$store.state.blocks
+  }
 
   async mounted () {
     await this.$store.dispatch('blocks/GET_BLOCKS', this.$attrs.region);
-  },
+  }
 
-})
+}
 </script>

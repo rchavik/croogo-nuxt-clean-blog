@@ -19,33 +19,34 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import Block from '~/models/Block'
 
-const getMenuAlias = function(shortcode: string) {
+function extractMenuAlias(shortcode: string) : string | null {
   let re = /\[(menu|m):([A-Za-z0-9_\-]*)(.*?)\]/i
   let result = re.exec(shortcode)
   return result ? result[2] : null
 }
 
-export default Vue.extend({
+@Component
+export default class MenuBlock extends Vue {
 
-  props: {
-    block: {}
-  },
+  @Prop(Block) readonly block: Block | undefined
 
-  data() {
-    return {
-      links: this.$store.state.links,
-      menuAlias: getMenuAlias(this.$props.block.body),
-    }
-  },
+  get links () {
+    return this.$store.state.links
+  }
+
+  get menuAlias () {
+    return extractMenuAlias(this.$props.block.body)
+  }
 
   async mounted () {
-    let menuAlias = getMenuAlias(this.$props.block.body)
+    let menuAlias = extractMenuAlias(this.$props.block.body)
     if (menuAlias) {
       await this.$store.dispatch('links/GET_LINKS', menuAlias)
     }
-  },
+  }
 
-})
+}
 </script>

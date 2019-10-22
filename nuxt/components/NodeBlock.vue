@@ -12,12 +12,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import Block from '~/models/Block'
 
-  props: {
-    block: {}
-  },
+@Component
+export default class NodeBlock extends Vue {
 
-})
+  @Prop(Block) readonly block: Block | undefined
+
+}
 </script>

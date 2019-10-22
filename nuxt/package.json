@@ -18,7 +18,9 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
     "nuxt-log": "^0.1.0",
-    "vue-api-query": "^1.5.1"
+    "vue-api-query": "^1.5.1",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.3.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.3.1",

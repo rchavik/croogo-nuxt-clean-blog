@@ -15,22 +15,22 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
-  computed: {
-    masthead () {
-      const current = this.$store.state.nodes.current;
-      const imagePath = current.linked_assets && current.linked_assets.FeaturedImage && current.linked_assets.FeaturedImage.length > 0
-        ? current.linked_assets.FeaturedImage[0].path
-        : '//picsum.photos/800/450'
-      return {
-        heading: current.title ,
-        subheading: current.excerpt,
-        backgroundImage: imagePath,
-      }
+@Component
+export default class Masthead extends Vue {
+
+  get masthead () {
+    const current = this.$store.state.nodes.current;
+    const imagePath = current.linked_assets && current.linked_assets.FeaturedImage && current.linked_assets.FeaturedImage.length > 0
+      ? current.linked_assets.FeaturedImage[0].path
+      : '//picsum.photos/800/450'
+    return {
+      heading: current.title ,
+      subheading: current.excerpt,
+      backgroundImage: imagePath,
     }
   }
 
-})
+}
 </script>

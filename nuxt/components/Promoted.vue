@@ -22,28 +22,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
-export default Vue.extend({
+@Component
+export default class Promoted extends Vue {
 
-  computed: {
-    nodes () {
-      return this.$store.state.nodes
-    }
-  },
+  get nodes () {
+    return this.$store.state.nodes
+  }
 
-  methods: {
-    format_date(value: string) : string  {
-      let date = new Date(value);
-      return date.toLocaleString()
-    }
-  },
+  format_date(value: string) : string  {
+    let date = new Date(value);
+    return date.toLocaleString()
+  }
 
   async mounted () {
     await this.$store.dispatch('nodes/GET_PROMOTED');
-  },
+  }
 
-})
+}
 </script>
 
 <style scoped>
